@@ -11,6 +11,8 @@ import { Snackbar, Paper, LinearProgress, Chip } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { toDate, AlertState, getAtaForMint } from './utils';
 import { MintButton } from './MintButton';
+// Add this import line at the top
+import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import "./responsive.css";
 import {
   CandyMachine,
@@ -589,17 +591,17 @@ const Home = (props: HomeProps) => {
           <Image className="nft-image" src="yourimagehere.png" alt="Mint a YOURNFT" />
         </LeftContainer>
         <RightContainer className="rightcontainer">
-          <MainTitle className="maintitle">Your NFT Name</MainTitle>
+          <MainTitle className="maintitle">The Art of Field Recording</MainTitle>
           <InfoContainer>
             <TotalItems className="totalitems">Total Items {itemsAvailable}</TotalItems>
             <Price className="price">Price ◎ {isActive && whitelistEnabled && (whitelistTokenBalance > 0) ? (whitelistPrice + " ") : (price + " ")} </Price>
             <IconContainer>
-              <IconLink className="infoIcon" href="#" target="__blank"> <InfoIcon src="website.svg" /> </IconLink>
-              <IconLink className="infoIcon" href="#" target="__blank"> <InfoIcon src="discord.svg" /> </IconLink>
-              <IconLink className="infoIcon" href="#" target="__blank"> <InfoIcon src="twitter.svg" /> </IconLink>
+              <IconLink className="infoIcon" href="https://catchtherecord.com/the-art-of-field-recording" target="__blank"> <InfoIcon src="website.svg" /> </IconLink>
+              <IconLink className="infoIcon" href="https://t.co/3OlYQcfZeX" target="__blank"> <InfoIcon src="discord.svg" /> </IconLink>
+              <IconLink className="infoIcon" href="https://twitter.com/field_recording" target="__blank"> <InfoIcon src="twitter.svg" /> </IconLink>
             </IconContainer>
           </InfoContainer>
-          <ProjectDescription>This front-end for Candy Machine V2 was made possible by Zaab Studio. Free to use & public to copy for everyone!</ProjectDescription>
+          <ProjectDescription>The 1st pro-audio community collection of arts about field recording was designed in collab with neural network close to the style of one Swiss-born German artist. There are 505 unique works depicting all possible variations on field recording in a vibrant way of abstract expressionism. There are the recordings of the sea and forests, busy streets and public transport, the rain and a bonfire, the buzzing of a fly, whistling winds, meadows, the bells and human voices (indoor and outdoor public tones), classical concerts, winter chill vibes and others.</ProjectDescription>
           <MintButtonContainer>
             {!isActive && !isEnded && candyMachine ?.state.goLiveDate && (!isWLOnly || whitelistTokenBalance > 0) ? (
               <Countdown
@@ -654,6 +656,13 @@ const Home = (props: HomeProps) => {
                       ) :
                       <h1>Mint is private.</h1>
                                         )}
+<CrossmintPayButton
+    collectionTitle="<The Art of Field Recording>"
+    collectionDescription="The 1st pro-audio community collection of arts about field recording was designed in collab with neural network close to the style of one Swiss-born German artist. There are 505 unique works depicting all possible variations on field recording in a vibrant way of abstract expressionism. There are the recordings of the sea and forests, busy streets and public transport, the rain and a bonfire, the buzzing of a fly, whistling winds, meadows, the bells and human voices (indoor and outdoor public tones), classical concerts, winter chill vibes and others."
+    collectionPhoto="https://gateway.pinata.cloud/ipfs/QmPNwn4wSfdLowy15rdFJyf1t6CbS2URds327LSYxuprPA"
+    clientId="396e4c63-20bd-477c-b041-c5bd6d4b198d"
+    mintConfig={{"type":"candy-machine"}}
+/>
           </MintButtonContainer>
           {wallet && isActive && whitelistEnabled && (whitelistTokenBalance > 0) && isBurnToken &&
             <WhitelistNotification>You own <b>{whitelistTokenBalance}</b> WL mint {whitelistTokenBalance > 1 ? "tokens" : "token"}.</WhitelistNotification>}
