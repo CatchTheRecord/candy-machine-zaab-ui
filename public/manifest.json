@@ -1,11 +1,11 @@
 {
-  "short_name": "Zaab CM",
-  "name": "Zaab Responsive Candy Machine",
+  "short_name": "Field Rec",
+  "name": "The Art of Field Recording",
   "icons": [
     {
       "src": "favicon.png",
       "type": "image/png",
-      "sizes": "524x524"
+      "sizes": "256x256"
     }
   ],
   "start_url": ".",
